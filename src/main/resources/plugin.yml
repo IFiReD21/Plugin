@@ -1,0 +1,13 @@
+name: FusionPlugin
+version: '${project.version}'
+main: fr.luna.fusionplugin.FusionPlugin
+api-version: 1.19
+commands:
+  fuse:
+    description: permet de fusionner deux objets
+  admingive:
+    description: give
+  stats:
+    description: ouvre le gestionnaire de stats
+  stoplug:
+    description: ferme le plugin

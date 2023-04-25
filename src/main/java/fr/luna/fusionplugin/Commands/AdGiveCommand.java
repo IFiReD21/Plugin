@@ -1,6 +1,7 @@
 package fr.luna.fusionplugin.Commands;
 
 import fr.luna.fusionplugin.FusionPlugin;
+import fr.luna.fusionplugin.Stats.Strength;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,6 +20,7 @@ public class AdGiveCommand implements CommandExecutor {
         System.out.println(args[0]);
 
         int id = Integer.parseInt(args[0].toString());
+        p.getDisplayName();
 
         p.getInventory().addItem(items.get(id));
         return false;

@@ -1,7 +1,5 @@
 package fr.luna.fusionplugin.Commands;
 
-import fr.luna.fusionplugin.Enum.StatsEnum;
-import fr.luna.fusionplugin.Player.PlayerStats;
 import fr.luna.fusionplugin.Player.PlayerUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -17,7 +15,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 
 public class StatsCommand implements CommandExecutor {
 
@@ -39,20 +36,20 @@ public class StatsCommand implements CommandExecutor {
         ItemStack speed = new ItemStack(Material.SUGAR);
         ItemStack res = new ItemStack(Material.SHIELD);
 
-        str.getItemMeta().setDisplayName("Force");
-        hp.getItemMeta().setDisplayName("Vie");
-        speed.getItemMeta().setDisplayName("Vitesse");
-        res.getItemMeta().setDisplayName("Resistance");
-
         ItemMeta strm = str.getItemMeta();
         ItemMeta hpm = hp.getItemMeta();
         ItemMeta speedm = speed.getItemMeta();
         ItemMeta resm = res.getItemMeta();
 
-        strm.setLore(Collections.singletonList("Level :" + PlayerUtility.getPlayerStats(p).getStrength()));
-        hpm.setLore(Collections.singletonList("Level :" + PlayerUtility.getPlayerStats(p).getHealth()));
-        speedm.setLore(Collections.singletonList("Level :" + PlayerUtility.getPlayerStats(p).getSpeed()));
-        resm.setLore(Collections.singletonList("Level :" + PlayerUtility.getPlayerStats(p).getResistance()));
+        strm.setLore(Collections.singletonList("Level :" + PlayerUtility.getPlayerStats(p).getStrengthlvl()));
+        hpm.setLore(Collections.singletonList("Level :" + PlayerUtility.getPlayerStats(p).getHealthlvl()));
+        speedm.setLore(Collections.singletonList("Level :" + PlayerUtility.getPlayerStats(p).getSpeedlvl()));
+        resm.setLore(Collections.singletonList("Level :" + PlayerUtility.getPlayerStats(p).getArmorlvl()));
+
+        strm.setDisplayName("§4Strength");
+        hpm.setDisplayName("§4Health");
+        speedm.setDisplayName("§4Speed");
+        resm.setDisplayName("§4Resistance");
 
         str.setItemMeta(strm);
         hp.setItemMeta(hpm);

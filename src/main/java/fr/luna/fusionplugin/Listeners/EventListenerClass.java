@@ -17,6 +17,7 @@ import java.io.IOException;
 
 public class EventListenerClass implements Listener {
 
+    //TODO : NEED TO UPDATE INVENTORY
     @EventHandler
     public void OnClickInventory(InventoryClickEvent e){
 
@@ -26,26 +27,26 @@ public class EventListenerClass implements Listener {
             switch (e.getCurrentItem().getItemMeta().getDisplayName()){
 
                 case "§4Strength":
-                    ps.setStrength(ps.getStrength()+1);
+                    ps.setStrengthlvl(ps.getStrengthlvl()+1);
                     e.getWhoClicked().sendMessage(ChatColor.GOLD + "Tu viens d'augmenter ta force !");
+                    System.out.println(ps.getStrengthlvl() + "STR" + "" + ps.getSpeedlvl() + "SPE" +  "" + ps.getArmorlvl() + "RES");
                     ps.updateStats((Player) e.getWhoClicked(),PlayerUtility.getPlayerStats((Player) e.getWhoClicked()));
-                    System.out.println(ps.getStrength() + "STR" + "" + ps.getSpeed() + "SPE" +  "" + ps.getResistance() + "RES");
                     return;
 
                 case "§4Health":
-                    ps.setHealth(ps.getHealth()+1);
+                    ps.setHealthlvl(ps.getHealthlvl()+1);
                     e.getWhoClicked().sendMessage(ChatColor.GOLD + "Tu viens d'augmenter ta vie !");
                     ps.updateStats((Player) e.getWhoClicked(),PlayerUtility.getPlayerStats((Player) e.getWhoClicked()));
                     return;
 
                 case "§4Speed":
-                    ps.setSpeed(ps.getSpeed()+1);
+                    ps.setSpeedlvl((int) (ps.getSpeedlvl()+1));
                     e.getWhoClicked().sendMessage(ChatColor.GOLD + "Tu viens d'augmenter ta vitesse !");
                     ps.updateStats((Player) e.getWhoClicked(),PlayerUtility.getPlayerStats((Player) e.getWhoClicked()));
                     return;
 
                 case "§4Resistance":
-                    ps.setResistance(ps.getResistance()+1);
+                    ps.setArmorlvl(ps.getArmorlvl()+1);
                     e.getWhoClicked().sendMessage(ChatColor.GOLD + "Tu viens d'augmenter ta resistance !");
                     ps.updateStats((Player) e.getWhoClicked(),PlayerUtility.getPlayerStats((Player) e.getWhoClicked()));
                     return;
@@ -63,19 +64,20 @@ public class EventListenerClass implements Listener {
 
         if(f.exists()){
             FileConfiguration cfg = YamlConfiguration.loadConfiguration(f);
-            ps.setHealth(cfg.getDouble("stats.health"));
-            ps.setSpeed(cfg.getDouble("stats.speed"));
-            ps.setResistance(cfg.getDouble("stats.resistance"));
-            ps.setStrength(cfg.getDouble("stats.strength"));
+            ps.setHealthlvl(cfg.getInt("stats.health"));
+            ps.setSpeedlvl(cfg.getInt("stats.speed"));
+            ps.setArmorlvl(cfg.getInt("stats.resistance"));
+            ps.setStrengthlvl(cfg.getInt("stats.strength"));
         }else{
-            ps.setHealth(20.0D);
-            ps.setStrength(2.0D);
-            ps.setSpeed(0.7D);
-            ps.setResistance(0D);
+            ps.setHealthlvl(0);
+            ps.setStrengthlvl(0);
+            ps.setSpeedlvl(0);
+            ps.setArmorlvl(0);
 
         }
 
         PlayerUtility.setPlayerStats(e.getPlayer(),ps);
+        ps.updateStats(e.getPlayer(),ps);
 
     }
 
@@ -85,10 +87,10 @@ public class EventListenerClass implements Listener {
         PlayerStats ps = PlayerUtility.getPlayerStats(e.getPlayer());
         File f = new File(PlayerUtility.getFolderPath(e.getPlayer()) + "/stats.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(f);
-        cfg.set("stats.health", ps.getHealth());
-        cfg.set("stats.speed", ps.getSpeed());
-        cfg.set("stats.resistance", ps.getResistance());
-        cfg.set("stats.strength", ps.getStrength());
+        cfg.set("stats.health", ps.getHealthlvl());
+        cfg.set("stats.speed", ps.getSpeedlvl());
+        cfg.set("stats.resistance", ps.getArmorlvl());
+        cfg.set("stats.strength", ps.getStrengthlvl());
 
         try {
             cfg.save(f);

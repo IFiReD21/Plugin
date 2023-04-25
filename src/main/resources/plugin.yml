@@ -11,3 +11,5 @@ commands:
     description: ouvre le gestionnaire de stats
   stoplug:
     description: ferme le plugin
+  testcommand:
+    description: test

@@ -1,9 +1,6 @@
 package fr.luna.fusionplugin;
 
-import fr.luna.fusionplugin.Commands.AdGiveCommand;
-import fr.luna.fusionplugin.Commands.FuseCommand;
-import fr.luna.fusionplugin.Commands.StatsCommand;
-import fr.luna.fusionplugin.Commands.StopLugCommand;
+import fr.luna.fusionplugin.Commands.*;
 import fr.luna.fusionplugin.Enum.CraftEnum;
 import fr.luna.fusionplugin.Enum.ItemEnum;
 import fr.luna.fusionplugin.Listeners.EventListenerClass;
@@ -32,6 +29,7 @@ public final class FusionPlugin extends JavaPlugin implements Listener {
         getCommand("admingive").setExecutor(new AdGiveCommand());
         getCommand("stats").setExecutor(new StatsCommand());
         getCommand("stoplug").setExecutor(new StopLugCommand());
+        getCommand("testcommand").setExecutor(new TestCommand());
 
         getServer().getPluginManager().registerEvents(new EventListenerClass(),this);
     }

@@ -1,4 +1,4 @@
-package fr.luna.fusionplugin;
+package fr.luna.fusionplugin.Enum;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

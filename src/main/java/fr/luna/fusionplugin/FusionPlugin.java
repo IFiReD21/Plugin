@@ -1,6 +1,12 @@
 package fr.luna.fusionplugin;
 
-import org.bukkit.Material;
+import fr.luna.fusionplugin.Commands.AdGiveCommand;
+import fr.luna.fusionplugin.Commands.FuseCommand;
+import fr.luna.fusionplugin.Commands.StatsCommand;
+import fr.luna.fusionplugin.Commands.StopLugCommand;
+import fr.luna.fusionplugin.Enum.CraftEnum;
+import fr.luna.fusionplugin.Enum.ItemEnum;
+import fr.luna.fusionplugin.Listeners.EventListenerClass;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -13,8 +19,8 @@ import java.util.UUID;
 
 public final class FusionPlugin extends JavaPlugin implements Listener {
 
-    static ArrayList<ItemStack> items = new ArrayList<ItemStack>();
-    static HashMap<ItemStack[], ItemStack> crafts = new HashMap<>();
+    public static ArrayList<ItemStack> items = new ArrayList<ItemStack>();
+    public static HashMap<ItemStack[], ItemStack> crafts = new HashMap<>();
     static HashMap<UUID, double[]> stats = new HashMap<>();
 
     @Override

@@ -1,4 +1,4 @@
-package fr.luna.fusionplugin;
+package fr.luna.fusionplugin.Utils;
 
 import java.io.*;
 

@@ -1,4 +1,4 @@
-package fr.luna.fusionplugin;
+package fr.luna.fusionplugin.Commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

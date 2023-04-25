@@ -1,5 +1,6 @@
-package fr.luna.fusionplugin;
+package fr.luna.fusionplugin.Commands;
 
+import fr.luna.fusionplugin.FusionPlugin;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

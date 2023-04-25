@@ -1,6 +1,7 @@
-package fr.luna.fusionplugin;
+package fr.luna.fusionplugin.Enum;
 
 import com.sun.tools.javac.jvm.Items;
+import fr.luna.fusionplugin.FusionPlugin;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
